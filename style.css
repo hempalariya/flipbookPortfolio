@@ -1,0 +1,472 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --main_color: #08C2FF;
+    --paper_color: #EEEEDD;
+}
+
+
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.793);
+}
+
+.book {
+    /* background-color: red; */
+    height: 55rem;
+    width: 48rem;
+    position: relative;
+    perspective: 200rem;
+    transition: transform .5s;
+}
+
+.book .page {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform-style: preserve-3d;
+    transition: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transform-origin: left;
+    transition: transform .5s ease-in-out;
+    background-color: var(--paper_color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.book .page.flipped {
+    transform: rotateY(-180deg);
+}
+
+.page1 {
+    z-index: 3;
+}
+
+.page2 {
+    z-index: 2;
+}
+
+.page3 {
+    z-index: 1;
+}
+
+.book .page .front,
+.book .page .back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2rem;
+}
+
+.book .page .front {
+    transform: rotateY(0deg) translateZ(.1rem);
+}
+
+.book .page .back {
+    transform: rotateY(180deg) translateZ(.1rem);
+}
+
+.book .page footer {
+    position: absolute;
+    bottom: 1rem;
+}
+
+.book .page .front footer {
+    right: 1rem;
+}
+
+.book .page .back footer {
+    left: 1rem;
+}
+
+.book .page footer button{
+    background-color: transparent;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--main_color);
+    color: var(--main_color);
+    cursor: pointer;
+    transition: .5s;
+}
+
+.book .page footer button:hover{
+    background-color: var(--main_color);
+    color: var(--paper_color);
+}
+
+
+.book .page footer ion-icon {
+    font-size: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+
+/************ profile ***************/
+
+#profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile .image{
+    height: 15rem;
+    width: 15rem;
+    border: 3px solid var(--main_color);
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+
+#profile .image img{
+    height: 100%;
+    width: 100%;
+}
+
+#profile h1{
+    font-size: 3rem;
+}
+
+#profile h2{
+    font-size: 2rem;
+    color: var(--main_color);
+    margin: .5rem 0rem 1rem;
+}
+
+
+#profile .social_link{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#profile .social_link a{
+    height: 4rem;
+    width: 4rem;
+    border: .2rem solid var(--main_color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--main_color);
+    transition: .5s;
+}
+
+
+
+
+#profile .social_link a ion-icon{
+    font-size: 2.5rem;
+}
+
+
+#profile .social_link a:hover{
+    background-color: var(--main_color);
+    color: var(--paper_color);
+}
+
+
+
+#profile p{
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+#profile .cv_contact{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+
+#profile .cv_contact a{
+    text-decoration: none;
+    height: 4rem;
+    width: 15rem;
+    font-size: 2rem;
+    background-color: var(--main_color);
+    color: var(--paper_color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .5rem;
+    border: 1px solid var(--main_color);
+    transition: .5s;
+}
+
+
+#profile .cv_contact a:hover{
+    background-color: var(--paper_color);
+    color: var(--main_color);
+}
+
+#profile .cv_contact a:nth-child(2){
+    background: var(--paper_color);
+    color: var(--main_color);
+}
+
+#profile .cv_contact a:nth-child(2):hover{
+    background-color: var(--main_color);
+    color: var(--paper_color);
+}
+
+
+
+/******************Experience and education**********************/
+
+
+
+#work_experience h1, 
+#education h1
+{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    
+}
+
+#work_experience main,
+#education main
+{
+    border-left: 2px solid var(--main_color);
+    
+}
+
+#work_experience main .experience,
+#education main .edu
+{
+    padding-left: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+#work_experience main .experience::before,
+#education main .edu::before
+{
+    content: '';
+    display: block;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: var(--main_color);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, 0);
+}
+
+#work_experience main .experience .duration,
+#education main .edu .duration
+{
+    color: var(--main_color);
+    font-size: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: .5rem;
+}
+
+#work_experience main .experience h2,
+#education main .edu h2
+{
+    font-size: 2rem;
+    margin-bottom: .7rem;
+}
+
+#work_experience main .experience p,
+#education main .edu p
+{
+    font-size: 1.5rem;
+}
+
+
+
+#services h1{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+#services main{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+#services main .service{
+    width: 20rem;
+    border: 1px solid var(--main_color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: .5rem;
+}
+
+#services main .service .icon{
+    font-size: 3rem;
+    color: var(--main_color);
+}
+#services main .service h2{
+    font-size: 1.8rem;
+    margin-bottom: .5rem;
+}
+
+#services main .service p{
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+#services main .service a{
+    text-decoration: none;
+    width: 12rem;
+    height: 4rem;
+    font-size: 1.8rem;
+    background-color: var(--main_color);
+    color: var(--paper_color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--main_color);
+    border-radius: .5rem;
+    transition: .5s;
+}
+
+#services main .service a:hover{
+    background-color: var(--paper_color);
+    color: var(--main_color);
+}
+
+
+
+
+
+#skills h1{
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+#skills > div h2{
+    font-size: 1.8rem;
+    margin: 1rem 0 ;
+}
+
+
+#skills > div .list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+
+#skills > div .list > div{
+    display: flex;
+    width: 8rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border: 1px solid var(--main_color);
+    border-radius: .5rem;
+    gap: .5rem;
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+#skills > div .list > div:hover{
+    transform: scale(1.1);
+}
+
+
+
+#skills > div .list > div ion-icon{
+    font-size: 2.5rem;
+    color: var(--main_color);
+    pointer-events: none;
+}
+
+#skills > div .list > div p{
+    font-size: 1.5rem;
+}
+
+
+
+#contact h1{
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+#contact form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#contact form div{
+    border: 1px solid var(--main_color);
+    border-radius: .5rem;
+    overflow: hidden;
+    width: 100%;
+}
+
+
+#contact form div input, #contact form div textarea{
+    border: none;
+    padding: 1rem .5rem;
+    font-size: 1.8rem;
+    width: 100%;
+    background-color: transparent;
+}
+
+
+#contact form div textarea{
+    height: 25rem;
+    resize: none;
+}
+
+#contact form button{
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    border: 1px solid var(--main_color);
+    border-radius: .5rem;
+    background-color: var(--main_color);
+    color: var(--paper_color);
+    transition: .5s;
+    cursor: pointer;
+}
+
+#contact form button:hover{
+    background-color: var(--paper_color);
+    color: var(--main_color);
+}
+

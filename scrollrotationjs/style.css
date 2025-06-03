@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    height: 400px;
+    width: 100%;
+    background-color: aqua;
+    position: relative;
+}
+
+.container .rotation{
+    width: 300px;
+    height: 100%;
+    background-color: orange;
+    position: relative;
+}
+
+.container .rotation .box{
+    background-color: aquamarine;
+    width: 200px;
+    height: 350px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    transform-style: preserve-3d;
+}
+
+.container .rotation .box:nth-child(2){
+    transform: translate(100%, 50%) rotateZ('90deg112');
+}
